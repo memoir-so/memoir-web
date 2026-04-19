@@ -82,9 +82,59 @@
   });
 
   // ── Sidebar interactive ──
-  document.querySelectorAll('.profile-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('.profile-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-    });
+// Profile data (single source of truth)
+const profiles = {
+  Work: [
+    "Senior full-stack developer building SaaS",
+    "Stack: Next.js, Fastify, Postgres",
+    "Prefers concise, technical answers",
+    "No explanations for beginner concepts",
+    "Currently working on auth flow + billing"
+  ],
+  Study: [
+    "Computer engineering student",
+    "Focus: DSA + system design",
+    "Prefers step-by-step explanations",
+    "Wants examples and intuition",
+    "Currently solving LeetCode problems"
+  ],
+  Personal: [
+    "Interested in startups and tech",
+    "Exploring AI + product building",
+    "Prefers high-level insights",
+    "Likes concise but thoughtful answers",
+    "Occasionally asks random curiosity questions"
+  ]
+};
+
+// Render memories
+function renderMemories(profile) {
+  const container = document.getElementById('memory-container');
+  container.innerHTML = '';
+
+  profiles[profile].forEach(text => {
+    const item = document.createElement('div');
+    item.className = 'memory-item';
+
+    item.innerHTML = `
+      <span class="memory-dot"></span>
+      <span class="memory-text">${text}</span>
+    `;
+
+    container.appendChild(item);
   });
+}
+
+// Handle pill clicks
+document.querySelectorAll('.profile-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.profile-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+
+    const profile = pill.textContent.trim();
+    renderMemories(profile);
+  });
+});
+
+// Initial load
+renderMemories('Work');

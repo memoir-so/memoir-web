@@ -1,290 +1,422 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memoir — AI Finally Knows Who You Are</title>
-  <link rel="icon" href="memoir logo b.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="memoir logo w.png" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Memoir silently injects your context into every new AI chat. No more re-explaining yourself to ChatGPT, Claude, Gemini, or Perplexity." />
-  <meta property="og:title" content="Memoir — AI Finally Knows Who You Are" />
-  <meta property="og:description" content="Your personal AI context layer. Set it up once. Never explain yourself again." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memoir</title>
+    <link
+      rel="icon"
+      href="memoir logo b.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      href="memoir logo w.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="description"
+      content="Memoir silently injects your context into every new AI chat. No more re-explaining yourself to ChatGPT, Claude, Gemini, or Perplexity."
+    />
+    <meta property="og:title" content="Memoir — AI Finally Knows Who You Are" />
+    <meta
+      property="og:description"
+      content="Your personal AI context layer. Set it up once. Never explain yourself again."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a class="nav-logo">
+        <img src="memoir logo b.png" alt="logo" class="logo-img" />memoir
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how">How it works</a></li>
+        <!-- <li><a href="#pricing">Pricing</a></li> -->
+        <li><a href="#waitlist" class="nav-cta">Join waitlist</a></li>
+      </ul>
+    </nav>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo">
-    <img src="memoir logo b.png" alt="logo" class="logo-img">memoir
-  </a>
-  <ul class="nav-links">
-    <li><a href="#how">How it works</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#waitlist" class="nav-cta">Join waitlist</a></li>
-  </ul>
-</nav>
+    <!-- HERO -->
+    <section id="hero">
+      <canvas id="particles"></canvas>
 
-<!-- HERO -->
-<section id="hero">
-  <canvas id="particles"></canvas>
-
-  <div class="hero-badge">
-    <span class="dot"></span>
-    Coming soon — Chrome extension + PWA
-  </div>
-
-  <h1>AI finally knows <em>who you are</em></h1>
-
-  <p class="hero-sub">
-    Memoir silently injects your context into every new AI chat — so you stop re-explaining yourself to ChatGPT, Claude, Gemini, and Perplexity.
-  </p>
-
-  <div class="hero-actions">
-    <a href="#waitlist" class="btn-primary">
-      Join the waitlist
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="#how" class="btn-ghost">See how it works</a>
-  </div>
-
-  <div class="platform-strip">
-    <span class="platform-strip-label">Works with</span>
-    <span class="platform-chip">
-      <svg class="platform-icon" viewBox="0 0 24 24" fill="#10a37f"><rect width="24" height="24" rx="4" fill="#10a37f"/><text x="12" y="17" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="white">G</text></svg>
-      ChatGPT
-    </span>
-    <span class="platform-chip">
-      <svg class="platform-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#d97757"/><text x="12" y="17" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="white">C</text></svg>
-      Claude
-    </span>
-    <span class="platform-chip">
-      <svg class="platform-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#4285f4"/><text x="12" y="17" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="white">G</text></svg>
-      Gemini
-    </span>
-    <span class="platform-chip">
-      <svg class="platform-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#20b8cd"/><text x="12" y="17" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="white">P</text></svg>
-      Perplexity
-    </span>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker-track" id="ticker">
-    <span class="ticker-item">Context injection <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on ChatGPT <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on Claude <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on Gemini <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on Perplexity <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Automatic memory capture <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Profile switching <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Privacy-first <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Zero setup <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works in under 300ms <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Context injection <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on ChatGPT <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on Claude <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on Gemini <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works on Perplexity <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Automatic memory capture <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Profile switching <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Privacy-first <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Zero setup <span class="ticker-sep"></span></span>
-    <span class="ticker-item">Works in under 300ms <span class="ticker-sep"></span></span>
-  </div>
-</div>
-
-<!-- PROBLEM -->
-<div id="problem">
-  <div class="inner">
-    <p class="section-label reveal">The problem</p>
-    <h2 class="reveal reveal-delay-1">Every new chat starts from <em>zero.</em></h2>
-    <div class="problem-grid">
-      <div class="problem-card before reveal reveal-delay-1">
-        <div class="card-tag bad">✕ &nbsp;Without Memoir</div>
-        <div class="chat-mock">
-          <div class="chat-header">
-            <div class="chat-dot"></div>
-            <div class="chat-dot"></div>
-            <div class="chat-dot"></div>
-            <span class="chat-platform-name">ChatGPT</span>
-          </div>
-          <div class="chat-body">
-            <div class="chat-msg user">Hi, I'm a senior full-stack dev working on a SaaS product using Next.js, Fastify, and Postgres. I prefer concise technical answers, no beginner explanations. Can you review this auth flow?</div>
-            <div class="chat-msg ai">Sure! Could you tell me a bit more about your setup and what you're trying to achieve?</div>
-          </div>
-        </div>
-        <p style="font-size:0.8rem;color:var(--ink-muted);margin-top:1rem;line-height:1.5;">You paste the same background every single session. The AI still gets it wrong.</p>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Coming soon — Chrome extension + PWA
       </div>
-      <div class="problem-card after reveal reveal-delay-2">
-        <div class="card-tag good">✓ &nbsp;With Memoir</div>
-        <div class="chat-mock">
-          <div class="chat-header">
-            <div class="chat-dot"></div>
-            <div class="chat-dot"></div>
-            <div class="chat-dot"></div>
-            <span class="chat-platform-name">ChatGPT</span>
-          </div>
-          <div class="chat-body">
-            <div class="chat-msg injected">
-              <div class="injected-tag">⚡ Memoir injected context</div>
-              Senior full-stack dev · SaaS product · Next.js + Fastify + Postgres · Prefers concise, technical responses · No beginner explanations
+
+      <h1>AI finally knows <em>who you are</em></h1>
+
+      <p class="hero-sub">
+        Memoir silently injects your context into every new AI chat — so you
+        stop re-explaining yourself to ChatGPT, Claude, Gemini, and Perplexity.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#waitlist" class="btn-primary">
+          Join the waitlist
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path
+              d="M3 7h8M8 4l3 3-3 3"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <a href="#how" class="btn-ghost">See how it works</a>
+      </div>
+
+      <div class="platform-strip">
+        <div class="platform-strip">
+          <span class="platform-strip-label">Works with</span>
+
+          <span class="platform-chip">
+            <img
+              src="OpenAI_light.svg"
+              class="platform-icon"
+              alt="ChatGPT logo"
+            />
+            ChatGPT
+          </span>
+
+          <span class="platform-chip">
+            <img
+              src="claude-ai-icon.svg"
+              class="platform-icon"
+              alt="Claude logo"
+            />
+            Claude
+          </span>
+
+          <span class="platform-chip">
+            <img src="gemini.svg" class="platform-icon" alt="Gemini logo" />
+            Gemini
+          </span>
+
+          <span class="platform-chip">
+            <img
+              src="perplexity.svg"
+              class="platform-icon"
+              alt="Perplexity logo"
+            />
+            Perplexity
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-track" id="ticker">
+        <span class="ticker-item"
+          >Context injection <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on ChatGPT <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on Claude <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on Gemini <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on Perplexity <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Automatic memory capture <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Profile switching <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Privacy-first <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Zero setup <span class="ticker-sep"></span
+        ></span>
+        <!-- <span class="ticker-item"
+          >Works in under 300ms <span class="ticker-sep"></span
+        ></span> -->
+        <span class="ticker-item"
+          >Context injection <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on ChatGPT <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on Claude <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on Gemini <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Works on Perplexity <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Automatic memory capture <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Profile switching <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Privacy-first <span class="ticker-sep"></span
+        ></span>
+        <span class="ticker-item"
+          >Zero setup <span class="ticker-sep"></span
+        ></span>
+        <!-- <span class="ticker-item"
+          >Works in under 300ms <span class="ticker-sep"></span
+        ></span> -->
+      </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <div id="problem">
+      <div class="inner">
+        <p class="section-label reveal">The problem</p>
+        <h2 class="reveal reveal-delay-1">
+          Every new chat starts from <em>zero.</em>
+        </h2>
+        <div class="problem-grid">
+          <div class="problem-card before reveal reveal-delay-1">
+            <div class="card-tag bad">✕ &nbsp;Without Memoir</div>
+            <div class="chat-mock">
+              <div class="chat-header">
+                <div class="chat-dot"></div>
+                <div class="chat-dot"></div>
+                <div class="chat-dot"></div>
+                <span class="chat-platform-name">ChatGPT</span>
+              </div>
+              <div class="chat-body">
+                <div class="chat-msg user">
+                  Hi, I'm a senior full-stack dev working on a SaaS product
+                  using Next.js, Fastify, and Postgres. I prefer concise
+                  technical answers, no beginner explanations. Can you review
+                  this auth flow?
+                </div>
+                <div class="chat-msg ai">
+                  Sure! Could you tell me a bit more about your setup and what
+                  you're trying to achieve?
+                </div>
+              </div>
             </div>
-            <div class="chat-msg user">Review this auth flow.</div>
-            <div class="chat-msg ai" style="color:#1a1a1a">Here's what I see in your JWT validation logic — three issues worth addressing...</div>
+            <p
+              style="
+                font-size: 0.8rem;
+                color: var(--ink-muted);
+                margin-top: 1rem;
+                line-height: 1.5;
+              "
+            >
+              You paste the same background every single session. The AI still
+              gets it wrong.
+            </p>
+          </div>
+          <div class="problem-card after reveal reveal-delay-2">
+            <div class="card-tag good">✓ &nbsp;With Memoir</div>
+            <div class="chat-mock">
+              <div class="chat-header">
+                <div class="chat-dot"></div>
+                <div class="chat-dot"></div>
+                <div class="chat-dot"></div>
+                <span class="chat-platform-name">ChatGPT</span>
+              </div>
+              <div class="chat-body">
+                <div class="chat-msg injected">
+                  <div class="injected-tag">⚡ Memoir injected context</div>
+                  Senior full-stack dev · SaaS product · Next.js + Fastify +
+                  Postgres · Prefers concise, technical responses · No beginner
+                  explanations
+                </div>
+                <div class="chat-msg user">Review this auth flow.</div>
+                <div class="chat-msg ai" style="color: #1a1a1a">
+                  Here's what I see in your JWT validation logic — three issues
+                  worth addressing...
+                </div>
+              </div>
+            </div>
+            <p
+              style="
+                font-size: 0.8rem;
+                color: var(--ink-muted);
+                margin-top: 1rem;
+                line-height: 1.5;
+              "
+            >
+              Memoir injected your context before you typed a word. The AI
+              already knows you.
+            </p>
           </div>
         </div>
-        <p style="font-size:0.8rem;color:var(--ink-muted);margin-top:1rem;line-height:1.5;">Memoir injected your context before you typed a word. The AI already knows you.</p>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <p class="section-label reveal">How it works</p>
-  <h2 class="reveal reveal-delay-1">Set it up once. <em>Never again.</em></h2>
-  <div class="steps-grid">
-    <div class="step-card reveal reveal-delay-1">
-      <span class="step-number">1</span>
-      <div class="step-icon">🔌</div>
-      <h3>Install the extension</h3>
-      <p>One click from the Chrome Web Store. Memoir adds a sidebar panel to your browser — it does not touch any of your existing AI tools.</p>
-    </div>
-    <div class="step-card reveal reveal-delay-2">
-      <span class="step-number">2</span>
-      <div class="step-icon">🧠</div>
-      <h3>Tell it who you are</h3>
-      <p>A 3-minute onboarding: your role, what you're working on, how you want AI to respond. Memoir builds your first profile and learns more from every session.</p>
-    </div>
-    <div class="step-card reveal reveal-delay-3">
-      <span class="step-number">3</span>
-      <div class="step-icon">⚡</div>
-      <h3>Context flows automatically</h3>
-      <p>Every time you open a new chat on any supported platform, Memoir injects your context before you type. Under 300ms. You just start asking.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SIDEBAR DEMO -->
-<div id="demo">
-  <div class="inner">
-    <div class="reveal">
-      <p class="section-label">The sidebar</p>
-      <h2>Your context layer, <em>always visible</em></h2>
-      <p>A slim panel that sits beside any AI platform. You can see which memories were injected, switch profiles with one tap, and review new memory suggestions — all without leaving your chat.</p>
-    </div>
-    <div class="sidebar-mock reveal reveal-delay-2">
-      <div class="sidebar-mock-header">
-        <span class="sidebar-brand">memoir</span>
-        <div class="sidebar-status">
-          <span class="status-dot"></span>
-          Context injected · ChatGPT
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <p class="section-label reveal">How it works</p>
+      <h2 class="reveal reveal-delay-1">
+        Set it up once. <em>Never again.</em>
+      </h2>
+      <div class="steps-grid">
+        <div class="step-card reveal reveal-delay-1">
+          <span class="step-number">1</span>
+          <div class="step-icon">🔌</div>
+          <h3>Install the extension</h3>
+          <p>
+            One click from the Chrome Web Store. Memoir adds a sidebar panel to
+            your browser — it does not touch any of your existing AI tools.
+          </p>
+        </div>
+        <div class="step-card reveal reveal-delay-2">
+          <span class="step-number">2</span>
+          <div class="step-icon">🧠</div>
+          <h3>Tell it who you are</h3>
+          <p>
+            A 3-minute onboarding: your role, what you're working on, how you
+            want AI to respond. Memoir builds your first profile and learns more
+            from every session.
+          </p>
+        </div>
+        <div class="step-card reveal reveal-delay-3">
+          <span class="step-number">3</span>
+          <div class="step-icon">⚡</div>
+          <h3>Context flows automatically</h3>
+          <p>
+            Every time you open a new chat on any supported platform, Memoir
+            injects your context before you type. Under 300ms. You just start
+            asking.
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="sidebar-section">
-        <div class="sidebar-section-label">Active profile</div>
-        <div class="profile-pills">
-          <div class="profile-pill active">Work</div>
-          <div class="profile-pill">Study</div>
-          <div class="profile-pill">Personal</div>
+    <!-- SIDEBAR DEMO -->
+    <div id="demo">
+      <div class="inner">
+        <div class="reveal">
+          <p class="section-label">The sidebar</p>
+          <h2>Your context layer, <em>always visible</em></h2>
+          <p>
+            A slim panel that sits beside any AI platform. You can see which
+            memories were injected, switch profiles with one tap, and review new
+            memory suggestions — all without leaving your chat.
+          </p>
         </div>
-      </div>
+        <div class="sidebar-mock reveal reveal-delay-2">
+          <div class="sidebar-mock-header">
+            <span class="sidebar-brand">memoir</span>
+            <div class="sidebar-status">
+              <span class="status-dot"></span>
+              Context injected · ChatGPT
+            </div>
+          </div>
 
-      <div class="sidebar-section">
-        <div class="sidebar-section-label">Memories used this session</div>
-        <div class="memory-item">
-          <span class="memory-dot"></span>
-          <span class="memory-text">Senior full-stack developer building SaaS</span>
-        </div>
-        <div class="memory-item">
-          <span class="memory-dot"></span>
-          <span class="memory-text">Stack: Next.js, Fastify, Postgres, Turborepo</span>
-        </div>
-        <div class="memory-item">
-          <span class="memory-dot"></span>
-          <span class="memory-text">Prefers concise, technical answers</span>
-        </div>
-        <div class="memory-item">
-          <span class="memory-dot"></span>
-          <span class="memory-text">No explanations for beginner concepts</span>
-        </div>
-        <div class="memory-item">
-          <span class="memory-dot"></span>
-          <span class="memory-text">Currently working on auth flow + billing</span>
-        </div>
-      </div>
+          <div class="sidebar-section">
+            <div class="sidebar-section-label">Active profile</div>
+            <div class="profile-pills">
+              <div class="profile-pill active">Work</div>
+              <div class="profile-pill">Study</div>
+              <div class="profile-pill">Personal</div>
+            </div>
+          </div>
 
-      <div class="toast-bar">
-        <span class="toast-text">New session detected on Gemini — switch to Study?</span>
-        <span class="toast-switch">Switch</span>
+          <div class="sidebar-section">
+            <div class="sidebar-section-label">Memories used this session</div>
+            <div id="memory-container"></div>
+          </div>
+
+          <div class="toast-bar">
+            <span class="toast-text"
+              >New session detected on Gemini — switch to Study?</span
+            >
+            <span class="toast-switch">Switch</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- IS / IS NOT -->
-<section>
-  <p class="section-label reveal">Memoir is</p>
-  <h2 class="reveal reveal-delay-1">Exactly what it says it is. <em>Nothing more.</em></h2>
-  <div class="isnot-grid">
-    <div class="isnot-col is reveal reveal-delay-1">
-      <h3>Memoir IS</h3>
-      <div class="isnot-item">
-        <span class="isnot-icon">✓</span>
-        <p>A persistent context layer that travels with you across AI platforms</p>
+    <!-- IS / IS NOT -->
+    <section>
+      <p class="section-label reveal">Memoir is</p>
+      <h2 class="reveal reveal-delay-1">
+        Exactly what it says it is. <em>Nothing more.</em>
+      </h2>
+      <div class="isnot-grid">
+        <div class="isnot-col is reveal reveal-delay-1">
+          <h3>Memoir IS</h3>
+          <div class="isnot-item">
+            <span class="isnot-icon">✓</span>
+            <p>
+              A persistent context layer that travels with you across AI
+              platforms
+            </p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon">✓</span>
+            <p>A silent background tool — it injects and gets out of the way</p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon">✓</span>
+            <p>
+              A memory bank that learns from your sessions and gets richer over
+              time
+            </p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon">✓</span>
+            <p>
+              A profile switcher — Work, Study, Personal — with one-tap
+              switching
+            </p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon">✓</span>
+            <p>
+              Private by design — only fragments are stored, never full
+              conversations
+            </p>
+          </div>
+        </div>
+        <div class="isnot-col isnot reveal reveal-delay-2">
+          <h3>Memoir IS NOT</h3>
+          <div class="isnot-item">
+            <span class="isnot-icon" style="color: #ef4444">✕</span>
+            <p>A note-taking app or second brain tool</p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon" style="color: #ef4444">✕</span>
+            <p>A chatbot or AI assistant of its own</p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon" style="color: #ef4444">✕</span>
+            <p>A replacement for ChatGPT, Claude, Gemini, or Perplexity</p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon" style="color: #ef4444">✕</span>
+            <p>A tool that reads or stores your conversation content</p>
+          </div>
+          <div class="isnot-item">
+            <span class="isnot-icon" style="color: #ef4444">✕</span>
+            <p>Another AI product competing for your attention</p>
+          </div>
+        </div>
       </div>
-      <div class="isnot-item">
-        <span class="isnot-icon">✓</span>
-        <p>A silent background tool — it injects and gets out of the way</p>
-      </div>
-      <div class="isnot-item">
-        <span class="isnot-icon">✓</span>
-        <p>A memory bank that learns from your sessions and gets richer over time</p>
-      </div>
-      <div class="isnot-item">
-        <span class="isnot-icon">✓</span>
-        <p>A profile switcher — Work, Study, Personal — with one-tap switching</p>
-      </div>
-      <div class="isnot-item">
-        <span class="isnot-icon">✓</span>
-        <p>Private by design — only fragments are stored, never full conversations</p>
-      </div>
-    </div>
-    <div class="isnot-col isnot reveal reveal-delay-2">
-      <h3>Memoir IS NOT</h3>
-      <div class="isnot-item">
-        <span class="isnot-icon" style="color:#ef4444">✕</span>
-        <p>A note-taking app or second brain tool</p>
-      </div>
-      <div class="isnot-item">
-        <span class="isnot-icon" style="color:#ef4444">✕</span>
-        <p>A chatbot or AI assistant of its own</p>
-      </div>
-      <div class="isnot-item">
-        <span class="isnot-icon" style="color:#ef4444">✕</span>
-        <p>A replacement for ChatGPT, Claude, Gemini, or Perplexity</p>
-      </div>
-      <div class="isnot-item">
-        <span class="isnot-icon" style="color:#ef4444">✕</span>
-        <p>A tool that reads or stores your conversation content</p>
-      </div>
-      <div class="isnot-item">
-        <span class="isnot-icon" style="color:#ef4444">✕</span>
-        <p>Another AI product competing for your attention</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- PRICING -->
-<!-- <div id="pricing">
+    <!-- PRICING -->
+    <!-- <div id="pricing">
   <div class="inner">
     <p class="section-label reveal">Pricing</p>
     <h2 class="reveal reveal-delay-1">Free to start. <em>Pro when you need it.</em></h2>
@@ -313,33 +445,46 @@
   </div>
 </div> -->
 
-<!-- WAITLIST -->
-<section id="waitlist">
-  <div class="release-badge reveal">
-    🗓 &nbsp;Expected release — Q3 2026
-  </div>
-  <h2 class="reveal reveal-delay-1">Be the first to stop <em>explaining yourself.</em></h2>
-  <p class="reveal reveal-delay-2">Memoir is in active development. Join the waitlist and get early access when it launches.</p>
-  <div class="waitlist-form reveal reveal-delay-3">
-    <input type="email" id="email-input" placeholder="your@email.com" />
-    <button class="btn-primary" onclick="handleWaitlist()">
-      Join waitlist
-    </button>
-  </div>
-  <div class="waitlist-success" id="success-msg">
-    ✓ &nbsp;You're on the list. We'll reach out when Memoir launches.
-  </div>
-  <p style="margin-top:1.25rem;font-size:0.78rem;color:var(--ink-ghost);font-family:'DM Mono',monospace;">No spam. Just a launch email when it's ready.</p>
-</section>
+    <!-- WAITLIST -->
+    <section id="waitlist">
+      <div class="release-badge reveal">
+        🗓 &nbsp;Expected release — Q3 2026
+      </div>
+      <h2 class="reveal reveal-delay-1">
+        Be the first to stop <em>explaining yourself.</em>
+      </h2>
+      <p class="reveal reveal-delay-2">
+        Memoir is in active development. Join the waitlist and get early access
+        when it launches.
+      </p>
+      <div class="waitlist-form reveal reveal-delay-3">
+        <input type="email" id="email-input" placeholder="your@email.com" />
+        <button class="btn-primary" onclick="handleWaitlist()">
+          Join waitlist
+        </button>
+      </div>
+      <div class="waitlist-success" id="success-msg">
+        ✓ &nbsp;You're on the list. We'll reach out when Memoir launches.
+      </div>
+      <p
+        style="
+          margin-top: 1.25rem;
+          font-size: 0.78rem;
+          color: var(--ink-ghost);
+          font-family: &quot;DM Mono&quot;, monospace;
+        "
+      >
+        No spam. Just a launch email when it's ready.
+      </p>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">memoir</span>
-  <span class="footer-note">Built in Pune, India &nbsp;·&nbsp; © 2026</span>
-  <span class="footer-note">AI context, finally universal</span>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-logo">memoir</span>
+      <span class="footer-note">Built in Pune, India &nbsp;·&nbsp; © 2026</span>
+      <span class="footer-note">AI context, finally universal</span>
+    </footer>
 
-<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
